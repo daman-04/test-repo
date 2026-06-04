@@ -1,8 +1,16 @@
 version: 0.2
+
 phases:
+  pre_build:
+    commands:
+      - echo "Running Quality Gate..."
+      - chmod +x tests/test_html.sh
+      - ./tests/test_html.sh
+
   build:
     commands:
       - echo "Nothing to compile, just moving HTML files..."
+
 artifacts:
   files:
     - '**/*'
